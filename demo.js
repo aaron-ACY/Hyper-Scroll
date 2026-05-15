@@ -42,7 +42,7 @@ function init() {
         const el = document.createElement('div');
         el.className = 'item';
 
-        if (i % 2 === 0 && highlightIndex < HIGHLIGHT_TEXTS.length) {
+        if (i % 3 === 0 && highlightIndex < HIGHLIGHT_TEXTS.length) {
             // Big red text
             const txt = document.createElement('div');
             txt.className = 'big-text';
