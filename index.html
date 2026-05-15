@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYPER SCROLL</title>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&family=Syncopate:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- OVERLAYS -->
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+    <div class="noise"></div>
+
+    <!-- HUD -->
+    <div class="hud">
+        <div class="hud-top">
+            <span>SYS.READY</span>
+            <div class="hud-line"></div>
+            <span>FPS: <strong id="fps">60</strong></span>
+        </div>
+        <div class="center-nav"
+            style="align-self: flex-start; margin-top: auto; margin-bottom: auto; writing-mode: vertical-rl; transform: rotate(180deg);">
+            SCROLL VELOCITY // <strong id="vel-readout">0.00</strong>
+        </div>
+        <div class="hud-bottom">
+            <span>COORD: <strong id="coord">000.000</strong></span>
+            <div class="hud-line"></div>
+            <span>VER 2.0.4 [BETA]</span>
+        </div>
+    </div>
+
+    <!-- 3D WORLD -->
+    <div class="viewport" id="viewport">
+        <div class="world" id="world"></div>
+    </div>
+
+    <div class="scroll-proxy"></div>
+
+    <div id="player"></div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        let player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '0',
+                width: '0',
+                videoId: 'h7MYJghRWt0', 
+                playerVars: {
+                    autoplay: 1,
+                    controls: 0,
+                    loop: 1,
+                    playlist: 'h7MYJghRWt0', 
+                    modestbranding: 1
+                },
+                events: {
+                    onReady: (event) => {
+                        event.target.playVideo(); 
+                    }
+                }
+            });
+        }
+    </script>
+
+    <script src="demo.js"></script>
+</body>
+
+</html>
